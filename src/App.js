@@ -8,6 +8,8 @@ import { useDispatch,useSelector } from 'react-redux'
 import Login from "./Pages/Auth/Login/Login";
 import PageNotFound from "./Pages/404/PageNotFound";
 import { initializeUser } from './reducers/loginReducer';
+import { initializeDrivers } from './reducers/driverReducer';
+import Drivers from './Pages/Drivers/Drivers';
 
 function App() {
 
@@ -20,12 +22,15 @@ function App() {
       const admin = JSON.parse(loggedAdminJSON)
 
       dispatch(initializeUser(admin))
+
+      dispatch(initializeDrivers())
     }
   },[dispatch])
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/auth/login" component={Login}/>
+        <Route exact path="/drivers" component={Drivers}/>
         <Route component={PageNotFound}/>
       </Switch>
     </BrowserRouter>
