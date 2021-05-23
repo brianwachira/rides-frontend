@@ -24,7 +24,7 @@ const create = async newObject => {
     
 }
 
-const unsuspendDriver = async driverId => {
+const unsuspend = async driverId => {
 
     const config = {
         headers: { Authorization: token},
@@ -39,7 +39,7 @@ const unsuspendDriver = async driverId => {
 }
 
 
-const suspendDriver = async driverId => {
+const suspend = async driverId => {
 
     const config = {
         headers: { Authorization: token},
@@ -54,4 +54,4 @@ const suspendDriver = async driverId => {
 }
 
 
-export default { getAll, create, setToken, suspendDriver, unsuspendDriver}
+export default { getAll, create, setToken, suspend, unsuspend}

@@ -42,7 +42,7 @@ export const addDriver = driver => {
 export const suspendDriver = id => {
 
     return async dispatch => {
-        await driverService.suspendDriver(id)
+        await driverService.suspend(id)
         dispatch({
             type: 'SUSPEND_DRIVER',
             data: {id}
@@ -53,7 +53,7 @@ export const suspendDriver = id => {
 export const unsuspendDriver = id => {
 
     return async dispatch => {
-        await driverService.unsuspendDriver(id)
+        await driverService.unsuspend(id)
         dispatch({
             type: 'UNSUSPEND_DRIVER',
             data: {id}
