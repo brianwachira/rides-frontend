@@ -4,14 +4,16 @@ const driverReducer = (state = [], action) => {
     switch(action.type) {
         case 'INIT_DRIVERS':
             return action.data
+        case 'NEW_DRIVER':
+            return [...state, action.data]
         case 'SUSPEND_DRIVER':
             const suspendedDriverId = action.data.id
             
-            return state.map(driver => driver.id === suspendedDriverId ? driver.suspended = true : driver)
+            return state.map(driver => driver.id === suspendedDriverId ? {...driver,suspended : true} : driver)
         case 'UNSUSPEND_DRIVER':
             const unsuspendedDriverId = action.data.id
 
-            return state.map(driver => driver.id === unsuspendedDriverId ? driver.suspended = false : driver)
+            return state.map(driver => driver.id === unsuspendedDriverId ? {...driver, suspended : false} : driver)
         default:
             return state
     }
@@ -28,6 +30,15 @@ export const initializeDrivers = () => {
     }
 }
 
+export const addDriver = driver => {
+    return async dispatch => {
+        const newDriver = await driverService.create(driver)
+        dispatch({
+            type: 'NEW_DRIVER',
+            data: newDriver
+        })
+    }
+}
 export const suspendDriver = id => {
 
     return async dispatch => {

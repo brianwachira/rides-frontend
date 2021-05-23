@@ -4,7 +4,7 @@ import driverReducer from './driverReducer'
 import thunk from 'redux-thunk'
 const reducer = combineReducers ({
     admin: loginReducer,
-    driver: driverReducer
+    drivers: driverReducer
 })
 
 const store = createStore(reducer, applyMiddleware(thunk))

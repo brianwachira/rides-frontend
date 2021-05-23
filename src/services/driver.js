@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/driver/'
+const baseUrl = '/driver'
 
 let token = null
 
@@ -7,25 +7,25 @@ const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 const getAll = () => {
+    const config = {
+      headers: { Authorization: token },
+    }
     const newUrl = `${baseUrl}/all`
-    const request = axios.get(newUrl)
+    const request = axios.get(newUrl,config)
     return request.then(response => response.data)
 }
 
-const suspendDriver = async driverId => {
+const create = async newObject => {
     const config = {
-        headers: { Authorization: token},
-        
+      headers: { Authorization: token },
     }
-    const newUrl = `${baseUrl}/${driverId}/suspend`
-
-    const response = await axios.post(newUrl, config)
-
+    const response = await axios.post(baseUrl,newObject,config)
     return response.data
-
+    
 }
 
 const unsuspendDriver = async driverId => {
+
     const config = {
         headers: { Authorization: token},
         
@@ -37,4 +37,21 @@ const unsuspendDriver = async driverId => {
     return response.data
 
 }
-export default { getAll, setToken, suspendDriver, unsuspendDriver}
+
+
+const suspendDriver = async driverId => {
+
+    const config = {
+        headers: { Authorization: token},
+        
+    }
+    const newUrl = `${baseUrl}/${driverId}/suspend`
+
+    const response = await axios.post(newUrl, null,config)
+
+    return response.data
+
+}
+
+
+export default { getAll, create, setToken, suspendDriver, unsuspendDriver}
