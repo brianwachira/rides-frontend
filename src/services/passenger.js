@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/passenger/'
+const baseUrl = '/passenger'
 
 
 let token = null
@@ -8,4 +8,23 @@ const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 
-export default { setToken}
+const getAll = () => {
+  const config = {
+    headers: { Authorization: token },
+  }
+  const newUrl = `${baseUrl}/all`
+  const request = axios.get(newUrl,config)
+  return request.then(response => response.data)
+
+}
+
+const create = async newObject => {
+    const config = {
+      headers: { Authorization: token },
+    }
+    const response = await axios.post(baseUrl,newObject,config)
+    return response.data
+    
+}
+
+export default { setToken, getAll, create}
