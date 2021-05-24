@@ -2,9 +2,9 @@ import { useDispatch, useSelector  } from 'react-redux'
 import { ReactComponent as NothingHereImage } from "../../Assets/Images/empty.svg"
 import "./Passengers.scss"
 import "bootstrap/js/src/collapse.js";
-import { addPassenger } from '../../reducers/passengerReducer';
+import { addPassenger, initializePassengers } from '../../reducers/passengerReducer';
 import RegisterModal from '../../Components/Modal/RegisterModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const Passengers = () => {
 
     const dispatch = useDispatch()
@@ -13,13 +13,13 @@ const Passengers = () => {
     const [name, setName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
 
-    // When theres no Passengers
-    if (Passengers.length < 1){
+    //When theres no Passengers
+    if (passengers.length < 1){
         return (
         <NothingHereImage/>
         )
     }
-
+    console.log(passengers.status)
     const createPassenger = () => {
         const newPassenger = {
             name,
@@ -52,7 +52,6 @@ const Passengers = () => {
                         key={passenger.id}>
                         <td>{passenger.name}</td>
                         <td>{passenger.phoneNumber}</td>
-                        <td>{`${passenger.suspended}`}</td>
                         <td>
                             <div className="btn-group">
                                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  data-bs-target="#dropdownMenuButton" aria-expanded="false">

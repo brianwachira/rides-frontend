@@ -25,9 +25,9 @@ function App() {
 
       dispatch(initializeUser(admin))
 
-      dispatch(initializeDrivers())
+       dispatch(initializeDrivers())
 
-      dispatch(initializePassengers)
+      dispatch(initializePassengers())
 
     }
   },[dispatch])
