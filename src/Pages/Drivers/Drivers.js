@@ -10,6 +10,7 @@ const Drivers = () => {
     const dispatch = useDispatch()
 
     const drivers = useSelector(state => state.drivers)
+    console.log(drivers)
     const [name, setName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
 

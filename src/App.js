@@ -12,6 +12,7 @@ import { initializeDrivers } from './reducers/driverReducer';
 import { initializePassengers } from './reducers/passengerReducer';
 import Drivers from './Pages/Drivers/Drivers';
 import Passengers from './Pages/Passengers/Passengers';
+import Home from './Pages/Home/Home';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/auth/login" component={Login}/>
+        <Route exact path="/" component={Home}/>
         <Route exact path="/drivers" component={Drivers}/>
         <Route exact path="/passengers" component={Passengers}/>
         <Route component={PageNotFound}/>

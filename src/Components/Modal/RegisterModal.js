@@ -24,20 +24,24 @@ return (
                     </div>
                     <form  onSubmit={(event) => bypassSubmit(event)}>
                         <div className="modal-body">
-                                <label htmlFor="name">Name</label>
+                                <label htmlFor="name" className="form-label">Name</label>
                                 <input
+                                className="form-control"
                                 type="text"
                                 name="" 
                                 id="" 
                                 value={name}
-                                onChange = {(event) => setName(event.target.value)}/>
-                                <label htmlFor="password">Phone Number</label>
-                                <input 
+                                onChange = {(event) => setName(event.target.value)}
+                                placeholder='John Doe'/>
+                                <label htmlFor="password" className="form-label">Phone Number</label>
+                                <input
+                                className="form-control" 
                                 type="phone" 
                                 name="" 
                                 id="" 
                                 value={phoneNumber}
-                                onChange = {(event) => setPhoneNumber(event.target.value)}/>
+                                onChange = {(event) => setPhoneNumber(event.target.value)}
+                                placeholder="+256712345678"/>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                 <button type="submit" className="btn btn-primary">{label}</button>
