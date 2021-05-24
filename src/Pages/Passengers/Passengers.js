@@ -2,9 +2,9 @@ import { useDispatch, useSelector  } from 'react-redux'
 import { ReactComponent as NothingHereImage } from "../../Assets/Images/empty.svg"
 import "./Passengers.scss"
 import "bootstrap/js/src/collapse.js";
-import { addPassenger, initializePassengers } from '../../reducers/passengerReducer';
+import { addPassenger } from '../../reducers/passengerReducer';
 import RegisterModal from '../../Components/Modal/RegisterModal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 const Passengers = () => {
 
     const dispatch = useDispatch()
@@ -19,7 +19,6 @@ const Passengers = () => {
         <NothingHereImage/>
         )
     }
-    console.log(passengers.status)
     const createPassenger = () => {
         const newPassenger = {
             name,
