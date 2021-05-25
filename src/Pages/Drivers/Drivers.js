@@ -32,17 +32,27 @@ const Drivers = () => {
     return (
         <>
          <h2>Drivers</h2>
-        <RegisterModal
-            label='Add driver'
-            name={name}
-            setName={setName}
-            phoneNumber={phoneNumber}
-            setPhoneNumber={setPhoneNumber}
-            handleSubmit = {createDriver}/>
+        
+
         <table className="table table-striped table-hover">
             <thead>
-                
                 <tr>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th>
+                    <RegisterModal
+                        label='Add driver'
+                        name={name}
+                        setName={setName}
+                        phoneNumber={phoneNumber}
+                        setPhoneNumber={setPhoneNumber}
+                        handleSubmit = {createDriver}/>
+                    </th>
+                </tr>                
+                <tr>
+                    <th>#</th>
                     <th>name</th>
                     <th>phone number</th>
                     <th>suspended</th>
@@ -50,9 +60,10 @@ const Drivers = () => {
                 </tr>
             </thead>
             <tbody>
-                {drivers.map(driver =>
+                {drivers.map((driver, index) =>
                     <tr
                         key={driver.id}>
+                        <td>{index}</td>
                         <td>{driver.name}</td>
                         <td>{driver.phoneNumber}</td>
                         <td>{`${driver.suspended}`}</td>

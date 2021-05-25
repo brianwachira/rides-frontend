@@ -40,15 +40,17 @@ const Passengers = () => {
             <thead>
                 
                 <tr>
+                    <th>#</th>
                     <th>name</th>
                     <th>phone number</th>
                     <th>Options</th>
                 </tr>
             </thead>
             <tbody>
-                {passengers.map(passenger =>
+                {passengers.map((passenger,index )=>
                     <tr
                         key={passenger.id}>
+                        <td>{index}</td>
                         <td>{passenger.name}</td>
                         <td>{passenger.phoneNumber}</td>
                         <td>

@@ -52,7 +52,7 @@ return (
                     onChange = {(event) => setPassword(event.target.value)}/>
                     <label htmlFor="password" className="form-label">Password</label>
                 </div>
-                <button type="submit" class="w-100 btn btn-primary">Login</button>
+                <button type="submit" className="w-100 btn btn-primary">Login</button>
             </form>
         </main>
     </section>
