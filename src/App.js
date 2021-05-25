@@ -13,6 +13,8 @@ import { initializePassengers } from './reducers/passengerReducer';
 import Drivers from './Pages/Drivers/Drivers';
 import Passengers from './Pages/Passengers/Passengers';
 import Home from './Pages/Home/Home';
+import Rides from './Pages/Rides/Rides';
+import { initializeRides } from './reducers/rideReducer';
 
 function App() {
 
@@ -26,9 +28,11 @@ function App() {
 
       dispatch(initializeUser(admin))
 
-       dispatch(initializeDrivers())
+      dispatch(initializeDrivers())
 
       dispatch(initializePassengers())
+
+      dispatch(initializeRides())
 
     }
   },[dispatch])
@@ -39,6 +43,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route exact path="/drivers" component={Drivers}/>
         <Route exact path="/passengers" component={Passengers}/>
+        <Route exact path="/rides" component={Rides}/>
         <Route component={PageNotFound}/>
       </Switch>
     </BrowserRouter>
