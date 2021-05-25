@@ -9,7 +9,7 @@ const rideReducer = ( state = [], action) => {
         case 'STOP_RIDE':
             const rideId = action.data.id
 
-            return state.map(ride => ride.id === rideId ? {...ride, status : 'done'} : ride)
+            return state.map(ride => ride.id === rideId ? action.data : ride)
         case 'ONGOING_RIDES':
             return action.data
         case 'DONE_RIDES':
@@ -51,7 +51,7 @@ export const stopRide = rideId => {
 
         dispatch({
             type: 'STOP_RIDE',
-            data: rideId
+            data: stoppedRide
         })
     }
 }
