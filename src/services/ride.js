@@ -25,7 +25,7 @@ const stop = async rideId => {
     headers: { Authorization: token },
   }
   const newUrl = `${baseUrl}/${rideId}/stop`
-  const response = await axios.post(newUrl,config)
+  const response = await axios.post(newUrl,null,config)
 
   return response.data
   
