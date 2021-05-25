@@ -10,19 +10,18 @@ const Drivers = () => {
     const dispatch = useDispatch()
 
     const drivers = useSelector(state => state.drivers)
-    console.log(drivers)
+    
     const [name, setName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
 
     // When theres no drivers
-    if (drivers.length < 1){
+    if (!drivers){
         return (
         <NothingHereImage/>
         )
     }
 
     const createDriver = () => {
-        console.log("licjed")
         const newDriver = {
             name,
             phoneNumber

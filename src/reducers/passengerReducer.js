@@ -15,7 +15,6 @@ export const initializePassengers = () => {
     return async dispatch => {
         const passengers = await passengerService.getAll()
 
-        console.log(passengers)
         dispatch({
             type: 'INIT_PASSENGERS',
             data: passengers

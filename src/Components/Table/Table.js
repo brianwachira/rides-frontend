@@ -6,15 +6,7 @@ const Table = (props) => {
 
     return (
         <>
-
-            {rides.length < 1 ?
-            
-                <>hello</>
-                :
-                rides.map(ride => 
-                    
-
-                <table>
+                <table className="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -23,6 +15,7 @@ const Table = (props) => {
                             <th>Driver</th>
                             <th>Passenger</th>
                             <th>Status</th>
+                            {buttonLabel ? <th>Options</th> : ''}
                         </tr>
                     </thead>
                     <tbody>
@@ -30,26 +23,29 @@ const Table = (props) => {
                             <tr
                                 key={ride.id}>
                                 <td>{index}</td>
-                                <td>{ride.pickupPoint}</td>
-                                <td>{ride.destinationPoint}</td>
-                                <td>{ride.driver}</td>
-                                <td>{ride.passenger}</td>
+                                <td>{ride.pickupPoint.toString()}</td>
+                                <td>{ride.destinationPoint.toString()}</td>
+                                <td>{ride.driver["name"]}</td>
+                                <td>{ride.passenger["name"]}</td>
                                 <td>{ride.status}</td>
+                                {buttonLabel ?
                                 <td>
                                     <div className="btn-group">
                                         <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  data-bs-target="#dropdownMenuButton" aria-expanded="false">
                                             
                                         </button>
                                         <ul className="dropdown-menu" id="dropdownMenuButton" aria-labelledby="dropdownMenuButton">
-                                            <li className="dropdown-item" onClick={handleClick}>{buttonLabel}</li>
+                                            <li className="dropdown-item"  onClick={() => handleClick(ride.id)} >{buttonLabel}</li>
                                         </ul>
                                     </div> 
                                 </td>
+                                :
+                                ''
+                                 }
                             </tr>
                             )}                    
                     </tbody>
-                </table>                    )
-            }
+                </table>                    
         </>
     )
 

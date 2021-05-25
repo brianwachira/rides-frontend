@@ -31,7 +31,7 @@ return (
         <main className="form-signin">
             <form  onSubmit={(event) => handleLogin(event)}>
                 <img src={logo} alt="safeboda logo" className="mb-3 text-center"/>
-                <p class="h5 mb-3 fw-normal text-center">Please sign in</p>
+                <p className="h5 mb-3 fw-normal text-center">Please sign in</p>
                 <div className="form-floating">
                     <input
                     className="form-control" 
