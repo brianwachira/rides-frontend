@@ -32,7 +32,8 @@ return (
                                 id="" 
                                 value={name}
                                 onChange = {(event) => setName(event.target.value)}
-                                placeholder='John Doe'/>
+                                placeholder='John Doe'
+                                required/>
                                 <label htmlFor="password" className="form-label">Phone Number</label>
                                 <input
                                 className="form-control" 
@@ -41,7 +42,8 @@ return (
                                 id="" 
                                 value={phoneNumber}
                                 onChange = {(event) => setPhoneNumber(event.target.value)}
-                                placeholder="+256712345678"/>
+                                placeholder="+256712345678"
+                                required/>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                 <button type="submit" className="btn btn-primary">{label}</button>
