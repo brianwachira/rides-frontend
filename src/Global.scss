@@ -2,8 +2,12 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
 // Import MapBox
-@import '~mapbox-gl/dist/mapbox-gl.css';
+// @import '~mapbox-gl/dist/mapbox-gl.css';
+// @import '~leaflet/dist/leaflet.css';
+
+//Import Leaflet
 @import '~leaflet/dist/leaflet.css';
+
 
 // ====== Variables =====
 
@@ -38,4 +42,16 @@ html{
         border-color: $color-orange;
         color: $color-blue;
     }
+}
+
+// custom nav pills
+.nav-pills {
+    .nav-link{
+        color: $color-blue;   
+    }
+    .nav-link.active{
+        background-color: $color-orange;
+        color:$color-blue;
+}
+
 }
