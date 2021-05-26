@@ -2,11 +2,11 @@ import React from "react"
 
 const Table = (props) => {
 
-    const {rides, handleClick , buttonLabel} = props
+    const {rides, handleClick , buttonLabel, handleShow} = props
 
     return (
         <>
-                <table className="table table-striped table-hover">
+                <table className="table table-striped table-hover table-responsive">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -21,7 +21,8 @@ const Table = (props) => {
                     <tbody>
                         {rides.map((ride, index) =>
                             <tr
-                                key={ride.id}>
+                                key={ride.id}
+                                onClick={handleShow ? () => handleShow(ride.id) : ''}>
                                 <td>{index}</td>
                                 <td>{ride.pickupPoint.toString()}</td>
                                 <td>{ride.destinationPoint.toString()}</td>
