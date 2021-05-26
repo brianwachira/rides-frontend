@@ -4,7 +4,10 @@ import { Provider } from 'react-redux'
 import store from './reducers/store'
 import './index.css';
 import './Global.scss';
+// import bootstrap
 import 'bootstrap/dist/js/bootstrap.js'
+// import leaflet
+import 'leaflet/dist/leaflet.js'
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom"
 
