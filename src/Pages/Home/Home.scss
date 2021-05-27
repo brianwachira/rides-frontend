@@ -1,0 +1,8 @@
+@import "../../Global.scss";
+.icon-custom{
+    color: $color-orange;
+
+    &:hover{
+        color: $color-blue;
+    }
+}
