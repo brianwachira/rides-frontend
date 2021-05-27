@@ -1,8 +1,8 @@
 import React from "react"
 
 const Table = (props) => {
-
-    const {rides, handleClick , buttonLabel, handleShow} = props
+    // setCoordinates([ride.pickupPoint],[ride.destinationPoint])
+    const {rides, handleClick , buttonLabel, setCoordinates} = props
 
     return (
         <>
@@ -22,7 +22,7 @@ const Table = (props) => {
                         {rides.map((ride, index) =>
                             <tr
                                 key={ride.id}
-                                onClick={handleShow ? () => handleShow(ride.id) : ''}>
+                                onClick={setCoordinates? () => setCoordinates(ride.pickupPoint,ride.destinationPoint) : null}>
                                 <td>{index}</td>
                                 <td>{ride.pickupPoint.toString()}</td>
                                 <td>{ride.destinationPoint.toString()}</td>
