@@ -8,6 +8,8 @@
 //Import Leaflet
 @import '~leaflet/dist/leaflet.css';
 
+// Import Font Awesome and its default variables
+@import 'font-awesome/css/font-awesome.min.css';
 
 // ====== Variables =====
 
@@ -19,6 +21,7 @@ $color-text : #383838;
 
 
 html{
+    height: -webkit-fill-available;
     body {
         color: $color-text;
         font-size: 16px;
