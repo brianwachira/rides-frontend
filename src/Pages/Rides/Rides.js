@@ -62,17 +62,17 @@ const Rides = () => {
             
             <ul className="nav nav-tabs nav-pills" id="myTab" role="tablist">
                 <li className="nav-item" role="presentation">
-                    <button className="nav-link active" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing" type="button" role="tab" aria-controls="ongoing" aria-selected="true">Ongoing Rides</button>
+                    <button className="nav-link active" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing" type="button" role="tab" aria-controls="ongoing" aria-selected="true" onClick={() => dispatch(getOngoingRides())}>Ongoing Rides</button>
                 </li>
                 <li className="nav-item" role="presentation">
-                    <button className="nav-link" id="done-tab" data-bs-toggle="tab" data-bs-target="#done" type="button" role="tab" aria-controls="done" aria-selected="false">Done Rides</button>
+                    <button className="nav-link" id="done-tab" data-bs-toggle="tab" data-bs-target="#done" type="button" role="tab" aria-controls="done" aria-selected="false" onClick={() => dispatch(getDoneRides())}>Done Rides</button>
                 </li>
                 <li className="nav-item" role="presentation">
-                    <button className="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="false">All Rides</button>
+                    <button className="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="false" onClick={()=> dispatch(initializeRides())}>All Rides</button>
                 </li>
             </ul>
             <div className="tab-content" id="myTabContent">
-                <div className="tab-pane fade show active" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab" onClick={() => dispatch(getOngoingRides())}>
+                <div className="tab-pane fade show active" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab">
                     <div className="row">
                         <div className="col-md-6">
                             <Table
@@ -107,11 +107,11 @@ const Rides = () => {
                         </div>
                     </div>               
                 </div>
-                <div className="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab" onClick={() => dispatch(getDoneRides())}>
+                <div className="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
                     <Table
                     rides={doneRides}/> 
                 </div>
-                <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab" onClick={()=> dispatch(initializeRides())}>
+                <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
                     <Table
                     rides={allRides}/> 
                 </div>
