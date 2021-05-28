@@ -8,7 +8,7 @@ let token = null
 const setToken = newToken => {
   token = `bearer ${newToken}`
 }
-const getAll = () => {
+const getAll = async () => {
   
   const config = {
     headers: { Authorization: token },
@@ -16,10 +16,11 @@ const getAll = () => {
 
   const newUrl = `${baseUrl}/all`
   const request = axios.get(newUrl,config)
-  return request.then(response => response.data)
+  const response = await request
+  return response.data
   
 }
-const ongoing = () => {
+const ongoing = async () => {
   
   const config = {
     headers: { Authorization: token },
@@ -27,10 +28,11 @@ const ongoing = () => {
 
   const newUrl = `${baseUrl}/ongoing`
   const request = axios.get(newUrl,config)
-  return request.then(response => response.data)
+  const response = await request
+  return response.data
 
 }
-const done = () => {
+const done = async () => {
   
   const config = {
     headers: { Authorization: token },
@@ -38,7 +40,8 @@ const done = () => {
 
   const newUrl = `${baseUrl}/done`
   const request = axios.get(newUrl,config)
-  return request.then(response => response.data)
+  const response = await request
+  return response.data
 
 }
 export default { setToken, getAll, ongoing, done}
