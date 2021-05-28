@@ -1,47 +1,44 @@
 import React from 'react'
 import './SideBar.scss'
+import { NavLink } from 'react-router-dom'
 
 const SideBar = () => {
 
     return (
         <>
-            <main className="main-nav">
-                <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{ width: '280px' }}>
+            <nav className="main-nav">
+                <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-sidebar" style={{ width: '280px' }}>
                     <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <svg className="bi me-2" width="40" height="32"><use xlinkHref="#bootstrap"/></svg>
-                        <span className="fs-4">Sidebar</span>
+                        <i class="fa fa-superpowers me-2" aria-hidden="true"></i>
+                        <span className="fs-4">Rides Dashboard</span>
                     </a>
                     <hr/>
                     <ul className="nav nav-pills flex-column mb-auto">
                     <li className="nav-item">
-                        <a href="#" className="nav-link active" aria-current="page">
-                        <svg className="bi me-2" width="16" height="16"><use xlinkHref="#home"/></svg>
-                        Home
-                        </a>
+                        <NavLink to="/" className="nav-link text-white" aria-current="page" activeClassName="active text-blue" exact>
+                            <i className="fa fa-home me-2" aria-hidden="true"></i>
+                            Home
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16"><use xlinkHref="#speedometer2"/></svg>
-                        Dashboard
-                        </a>
+                        <NavLink to="/rides" className="nav-link text-white" activeClassName="active text-blue">
+                            <i className="fa fa-motorcycle me-2" aria-hidden="true"></i>
+                            Rides
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16"><use xlinkHref="#table"/></svg>
-                        Orders
-                        </a>
+                        <NavLink to="/drivers" className="nav-link text-white" activeClassName="active text-blue">
+                            <i className="fa fa-circle-o me-2" aria-hidden="true"></i>
+
+                        Drivers
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid"/></svg>
-                        Products
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16"><use xlinkHref="#people-circle"/></svg>
-                        Customers
-                        </a>
+                        <NavLink to="/passengers" className="nav-link text-white" activeClassName="active text-blue">
+                            <i className="fa fa-user me-2" aria-hidden="true"></i>
+
+                        Passengers
+                        </NavLink>
                     </li>
                     </ul>
                     <hr/>
@@ -59,7 +56,7 @@ const SideBar = () => {
                     </ul>
                     </div>
                 </div>
-            </main>
+            </nav>
         </>
     )
 
