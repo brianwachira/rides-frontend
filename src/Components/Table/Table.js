@@ -1,13 +1,13 @@
 import React from "react"
 
 const Table = (props) => {
-    // setCoordinates([ride.pickupPoint],[ride.destinationPoint])
     const {rides, handleClick , buttonLabel, setCoordinates} = props
 
     return (
         <>
-                <table className="table table-striped table-hover table-responsive">
-                    <thead>
+            <div className="table-responsive">
+                <table className="table table-striped table-hover">
+                    <thead className="table-blue text-light">
                         <tr>
                             <th>#</th>
                             <th>Pickup Point</th>
@@ -28,7 +28,7 @@ const Table = (props) => {
                                 <td>{ride.destinationPoint.toString()}</td>
                                 <td>{ride.driver["name"]}</td>
                                 <td>{ride.passenger["name"]}</td>
-                                <td>{ride.status}</td>
+                                <td>{ride.status === 'ongoing' ? <span className="badge bg-orange">Ongoing</span> : <span className="badge bg-blue">Done</span>}</td>
                                 {buttonLabel ?
                                 <td>
                                     <div className="btn-group">
@@ -46,7 +46,8 @@ const Table = (props) => {
                             </tr>
                             )}                    
                     </tbody>
-                </table>                    
+                </table>  
+            </div>                  
         </>
     )
 
