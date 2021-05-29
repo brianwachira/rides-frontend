@@ -2,6 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 import Card from "../../Components/Card/Card"
 import SideBar from '../../Components/SideBar/SideBar'
+import { Link } from 'react-router-dom'
 import './Home.scss'
 const Home = () => {
 
@@ -11,31 +12,37 @@ const Home = () => {
         <>
         <main className="container-fluid">
             <div className="row">
-                <div className="col-md-3 ps-0">
+                <div className="col-md-3 ps-0 px-0">
                     <SideBar/>
 
                 </div>
                 <div className="col-md-3 mt-5">
-                    <Card
-                        icon={<i className="fa fa-globe fa-4x icon-custom" aria-hidden="true"></i>}
-                        label='All Rides'
-                        number={rides.length}
-                    />
+                    <Link to="/rides">
+                        <Card
+                            icon={<i className="fa fa-globe fa-4x icon-custom" aria-hidden="true"></i>}
+                            label='All Rides'
+                            number={rides.length}
+                        />
+                    </Link>
                 </div>
                 <div className="col-md-3 mt-5">
-                    <Card
-                        icon={<i className="fa fa-motorcycle fa-4x icon-custom" aria-hidden="true"></i>}
-                        label='No. Of ongoing Rides'
-                        number={ongoingRides.length}
-                        />
+                    <Link to="/rides">
+                        <Card
+                            icon={<i className="fa fa-motorcycle fa-4x icon-custom" aria-hidden="true"></i>}
+                            label='No. Of ongoing Rides'
+                            number={ongoingRides.length}
+                            />
+                    </Link>
 
                 </div>
                 <div className="col-md-3 mt-5">
-                    <Card
-                        icon={<i className="fa fa-check-circle fa-4x icon-custom" aria-hidden="true"></i>}
-                        label='No. Of Rides Today'
-                        number='20'
-                        />
+                    <Link to="/rides">
+                        <Card
+                            icon={<i className="fa fa-check-circle fa-4x icon-custom" aria-hidden="true"></i>}
+                            label='No. Of Rides Today'
+                            number='20'
+                            />
+                    </Link>
                 </div>
             </div>
         </main>
