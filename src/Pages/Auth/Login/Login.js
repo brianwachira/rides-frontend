@@ -1,11 +1,9 @@
 import React,{useState} from 'react'
-
 import { useDispatch} from 'react-redux'
 import { login } from "../../../reducers/loginReducer"
 import "./Login.scss"
-import logo from '../../../Assets/Images/logo.png'
+
 const Login = () => {
-    
     const [email, setEmail] = useState('admin@admin.com')
     const [password, setPassword] = useState('admin123')
 
@@ -30,7 +28,7 @@ return (
     <section className="form-container">
         <main className="form-signin">
             <form  onSubmit={(event) => handleLogin(event)}>
-                <img src={logo} alt="safeboda logo" className="mb-3 text-center"/>
+                <i class="fa fa-motorcycle fa-4x icon-custom mb-4" aria-hidden="true"></i>
                 <p className="h5 mb-3 fw-normal text-center">Please sign in</p>
                 <div className="form-floating">
                     <input
