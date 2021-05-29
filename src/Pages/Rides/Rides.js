@@ -69,67 +69,71 @@ const Rides = () => {
         <>
         <main className="container-fluid">
             <div className="row">
-                <div className="col-md-3 ps-0">
+                <div className="col-md-3 py-0 px-0">
                     <SideBar/>
                 </div>
                 <div className="col-md-9">
                     <h3 className="my-5">Rides</h3>
-                    <ul className="nav nav-tabs nav-pills mt-5" id="myTab" role="tablist">
-                        <li className="nav-item" role="presentation">
-                            <button className="nav-link active" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing" type="button" role="tab" aria-controls="ongoing" aria-selected="true" onClick={() => dispatch(getOngoingRides())}>Ongoing Rides</button>
-                        </li>
-                        <li className="nav-item" role="presentation">
-                            <button className="nav-link" id="done-tab" data-bs-toggle="tab" data-bs-target="#done" type="button" role="tab" aria-controls="done" aria-selected="false" onClick={() => dispatch(getDoneRides())}>Done Rides</button>
-                        </li>
-                        <li className="nav-item" role="presentation">
-                            <button className="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="false" onClick={()=> dispatch(initializeRides())}>All Rides</button>
-                        </li>
-                    </ul>
-                    <div className="tab-content" id="myTabContent">
-                        <div className="tab-pane fade show active" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <Table
-                                    rides={ongoingRides}
-                                    handleClick={stop}
-                                    buttonLabel='Stop Ride'
-                                    setCoordinates={showCoordinates}/>
+                    <div className="card">
+                        <div className="card-header">
+                            <ul className="nav nav-pills" id="myTab" role="tablist">
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link active" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing" type="button" role="tab" aria-controls="ongoing" aria-selected="true" onClick={() => dispatch(getOngoingRides())}>Ongoing Rides</button>
+                                </li>
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link" id="done-tab" data-bs-toggle="tab" data-bs-target="#done" type="button" role="tab" aria-controls="done" aria-selected="false" onClick={() => dispatch(getDoneRides())}>Done Rides</button>
+                                </li>
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="false" onClick={()=> dispatch(initializeRides())}>All Rides</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="tab-content" id="myTabContent">
+                            <div className="tab-pane fade show active" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Table
+                                        rides={ongoingRides}
+                                        handleClick={stop}
+                                        buttonLabel='Stop Ride'
+                                        setCoordinates={showCoordinates}/>
+                                    </div>
                                 </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <MapContainer 
+                                            center={polylines[0]} 
+                                            zoom={13} 
+                                            scrollWheelZoom={true}        
+                                            style={{ height:"400px", marginLeft:"10px", marginRight:"10px", marginTop:"40px", marginBottom:'10px', borderRadius:"3px"}} className="bg-map">
+                                                <ChangeView center={polylines[0]}/>
+                                                <TileLayer
+                                                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                />
+                                                <Marker position={polylines[0]}>
+                                                    <Popup>
+                                                    Pickup Point
+                                                    </Popup>
+                                                </Marker>
+                                                <Marker position={polylines[1]}>
+                                                    <Popup>
+                                                    Destination Point
+                                                    </Popup>
+                                                </Marker>
+                                                <Polyline pathOptions={limeOptions} positions={polylines} />
+                                        </MapContainer>  
+                                    </div>
+                                </div>               
                             </div>
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <MapContainer 
-                                        center={polylines[0]} 
-                                        zoom={13} 
-                                        scrollWheelZoom={true}        
-                                        style={{ height:"400px",marginTop:"40px", marginBottom:'90px'}} className="bg-map">
-                                            <ChangeView center={polylines[0]}/>
-                                            <TileLayer
-                                                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                            />
-                                            <Marker position={polylines[0]}>
-                                                <Popup>
-                                                Pickup Point
-                                                </Popup>
-                                            </Marker>
-                                            <Marker position={polylines[1]}>
-                                                <Popup>
-                                                Destination Point
-                                                </Popup>
-                                            </Marker>
-                                            <Polyline pathOptions={limeOptions} positions={polylines} />
-                                    </MapContainer>  
-                                </div>
-                            </div>               
-                        </div>
-                        <div className="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
-                            <Table
-                            rides={doneRides}/> 
-                        </div>
-                        <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
-                            <Table
-                            rides={allRides}/> 
+                            <div className="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
+                                <Table
+                                rides={doneRides}/> 
+                            </div>
+                            <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
+                                <Table
+                                rides={allRides}/> 
+                            </div>
                         </div>
                     </div>
                 </div>
