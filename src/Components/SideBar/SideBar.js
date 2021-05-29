@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SideBar.scss'
 import { NavLink } from 'react-router-dom'
 
 const SideBar = () => {
 
+    const [collapsed, setCollapsed] = useState(false)
     return (
         <>
-            <nav className="main-nav">
+            <nav className="navbar navbar-dark bg-blue d-flex d-md-none ">
+                <div className="container-fluid">
+                    <button className="navbar-toggler" type="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"
+                    onClick={(event)=> {
+                        event.preventDefault()
+                        setCollapsed(!collapsed)}}>
+                    <span className="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+            <nav className={collapsed === true ? 'main-nav collapse show' : 'main-nav collapse d-md-flex'} >
                 <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-sidebar" style={{ width: '280px' }}>
                     <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                         <i class="fa fa-superpowers me-2" aria-hidden="true"></i>

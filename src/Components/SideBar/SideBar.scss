@@ -8,6 +8,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     position: fixed;
+    z-index: 1;
   }
   
   .b-example-divider {
@@ -80,4 +81,10 @@
   
   .fw-semibold { font-weight: 600; }
   .lh-tight { line-height: 1.25; }
+
+    @media only screen and (min-width : 768px) {
+      .collapse{
+        display: flex;
+      }
+    }
   
