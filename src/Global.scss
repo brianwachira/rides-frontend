@@ -59,10 +59,32 @@ html{
 
 }
 
-.bg-sidebar{
+.bg-sidebar,.table-blue{
+    background-color: $color-blue;
+}
+.bg-orange{
+    background-color: $color-orange;
+}
+.bg-blue{
     background-color: $color-blue;
 }
 
 .text-blue{
     color: $color-blue !important;
+}
+
+a{
+    color: $color-blue;
+    text-decoration: none;
+    &:hover{
+        color: $color-orange;
+    }
+}
+
+.icon-custom{
+    color: $color-orange;
+
+    &:hover{
+        color: $color-blue;
+    }
 }
