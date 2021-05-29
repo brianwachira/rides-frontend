@@ -1,7 +1,7 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import './App.css';
 import React from "react"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route, Redirect} from "react-router-dom"
 
 import { useDispatch } from 'react-redux'
 // pages
@@ -15,8 +15,8 @@ import Passengers from './Pages/Passengers/Passengers';
 import Home from './Pages/Home/Home';
 import Rides from './Pages/Rides/Rides';
 import { initializeRides } from './reducers/rideReducer';
-
-function App() {
+function App() { 
+  const[isLoggedIn, setLoggedIn] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -25,7 +25,7 @@ function App() {
 
     if(loggedAdminJSON) {
       const admin = JSON.parse(loggedAdminJSON)
-
+      setLoggedIn(true)
       dispatch(initializeUser(admin))
 
       dispatch(initializeDrivers())
@@ -33,17 +33,26 @@ function App() {
       dispatch(initializePassengers())
 
       dispatch(initializeRides())
-
     }
   },[dispatch])
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/auth/login" component={Login}/>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/drivers" component={Drivers}/>
-        <Route exact path="/passengers" component={Passengers}/>
-        <Route exact path="/rides" component={Rides}/>
+        <Route exact path="/auth/login" component={Login}>
+          {isLoggedIn ? <Redirect to="/" /> : <Login/>}
+        </Route>
+        <Route exact path="/" component={Home}>
+          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Home/>}
+        </Route>
+        <Route exact path="/drivers" component={Drivers}>
+          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Drivers/>}
+        </Route>
+        <Route exact path="/passengers" component={Passengers}>
+          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Passengers/>}
+        </Route>
+        <Route exact path="/rides" component={Rides}>
+          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Rides/>}
+        </Route>
         <Route component={PageNotFound}/>
       </Switch>
     </BrowserRouter>
