@@ -15,9 +15,10 @@ const driverReducer = (state = [], action) => {
 
             return state.map(driver => driver.id === unsuspendedDriverId ? {...driver, suspended : false} : driver)
         case 'GET_FREE_DRIVERS':
+            const data = action.data
             // eslint-disable-next-line array-callback-return
-            return state.filter(driver => {
-                if((driver['rides'].some(ride => ride['status'] === "ongoing")) === false){
+            return data.filter(driver => {
+                if(driver.suspended === false && (driver['rides'].some(ride => ride['status'] === "ongoing")) === false){
                     return driver
                 }
 
@@ -73,9 +74,11 @@ export const unsuspendDriver = id => {
 }
 
 export const getFreeDrivers = () => {
-    return dispatch => {
+    return async dispatch => {
+        const drivers = await driverService.getAll()
         dispatch({
-            type: 'GET_FREE_DRIVERS'
+            type: 'GET_FREE_DRIVERS',
+            data: drivers
         })
     }
 }
