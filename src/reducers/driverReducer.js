@@ -14,6 +14,14 @@ const driverReducer = (state = [], action) => {
             const unsuspendedDriverId = action.data.id
 
             return state.map(driver => driver.id === unsuspendedDriverId ? {...driver, suspended : false} : driver)
+        case 'GET_FREE_DRIVERS':
+            return state.filter(driver => {
+                if((driver['rides'].some(ride => ride['status'] === "ongoing")) === false){
+                    return driver
+                }
+
+            })
+
         default:
             return state
     }
@@ -61,6 +69,14 @@ export const unsuspendDriver = id => {
     }
 
 
+}
+
+export const getFreeDrivers = () => {
+    return dispatch => {
+        dispatch({
+            type: 'GET_FREE_DRIVERS'
+        })
+    }
 }
 
 

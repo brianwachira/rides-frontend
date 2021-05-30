@@ -6,6 +6,13 @@ const passengerReducer = (state = [], action) => {
             return action.data
         case 'NEW_PASSENGER':
             return [...state, action.data]
+        case 'GET_FREE_PASSENGERS':
+            return state.filter(passenger => {
+                if((passenger['rides'].some(ride => ride['status'] === "ongoing")) === false){
+                    return passenger
+                }
+
+            })
         default :
             return state
     }
@@ -32,5 +39,11 @@ export const addPassenger = passenger => {
         })
     }
 }
-
+export const getFreePassengers = () => {
+    return dispatch => {
+        dispatch({
+            type: 'GET_FREE_PASSENGERS'
+        })
+    }
+}
 export default passengerReducer
