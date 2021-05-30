@@ -1,11 +1,17 @@
-import React from 'react'
+import React, {useRef} from 'react'
 const RegisterModal = (props) => {
-
+    const closeModal = useRef(null)
     const {label,setName,name,setPhoneNumber,phoneNumber,handleSubmit} = props
-
     const bypassSubmit = (event) => {
         event.preventDefault()
         handleSubmit()
+
+        setTimeout(()=> {
+
+            //Simulate a click
+            closeModal.current?.click()
+
+        },1000)
     }
 return (
     <>
@@ -45,7 +51,7 @@ return (
                                 placeholder="+256712345678"
                                 required/>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" ref={closeModal}>Cancel</button>
                                 <button type="submit" className="btn btn-primary">{label}</button>
                             </div>
                         </div>
