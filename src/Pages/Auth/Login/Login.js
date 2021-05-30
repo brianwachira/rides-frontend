@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { useDispatch} from 'react-redux'
 import { login } from "../../../reducers/loginReducer"
+import { setNotification } from '../../../reducers/notificationReducer'
 import "./Login.scss"
 
 const Login = () => {
@@ -19,6 +20,18 @@ const Login = () => {
             }
 
             dispatch(login(data))
+
+                
+            dispatch(setNotification({
+                title: 'Login Success',
+                message: 'Login Succesfull'
+            }))
+
+            setTimeout(()=> {
+                dispatch(setNotification(''))
+                window.location.reload()
+        
+            },2000)
         }catch (exception) {
             console.log(exception)
         }

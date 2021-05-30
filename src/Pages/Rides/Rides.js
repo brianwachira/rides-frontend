@@ -10,6 +10,9 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { useState } from 'react'
 import SideBar from '../../Components/SideBar/SideBar'
 import Simulation from '../../Components/Simulation/Simulation'
+import { setNotification } from '../../reducers/notificationReducer'
+import { getFreeDrivers } from '../../reducers/driverReducer'
+import { getFreePassengers } from '../../reducers/passengerReducer'
 
 const Rides = () => {
 
@@ -35,6 +38,16 @@ const Rides = () => {
     const stop = (id) => {
 
         dispatch(stopRide(id))
+
+        dispatch(setNotification({
+            title: 'Stop Ride Success',
+            message: 'Stop Ride Succesfull'
+        }))
+
+        setTimeout(()=> {
+            dispatch(setNotification(''))
+    
+        },5000)
     }
 
     let DefaultIcon = L.icon({
@@ -48,7 +61,7 @@ const Rides = () => {
 
 
       const showCoordinates = (pickupPoint,destinationPoint) => {
-          
+
             setPolylines([pickupPoint,destinationPoint])
       }
 
@@ -58,7 +71,10 @@ const Rides = () => {
           return null;
       }
 
-
+      const getFreePassengersAndDrivers = (event) => {
+        dispatch(getFreeDrivers())
+        dispatch(getFreePassengers())
+      }
     return (
         <>
         <main className="container-fluid">
@@ -81,7 +97,7 @@ const Rides = () => {
                                     <button className="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="false" onClick={()=> dispatch(initializeRides())}>All Rides</button>
                                 </li>
                                 <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="simulation-tab" data-bs-toggle="tab" data-bs-target="#simulation" type="button" role="tab" aria-controls="simulation" aria-selected="false" onClick={(event)=> event.preventDefault()}>Simulation</button>
+                                    <button className="nav-link" id="simulation-tab" data-bs-toggle="tab" data-bs-target="#simulation" type="button" role="tab" aria-controls="simulation" aria-selected="false" onClick={(event)=> getFreePassengersAndDrivers(event)}>Simulation</button>
                                 </li>
                             </ul>
                         </div>

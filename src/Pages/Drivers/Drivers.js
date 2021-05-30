@@ -6,6 +6,7 @@ import { addDriver, suspendDriver, unsuspendDriver } from '../../reducers/driver
 import RegisterModal from '../../Components/Modal/RegisterModal';
 import { useState } from 'react';
 import SideBar from '../../Components/SideBar/SideBar';
+import { setNotification } from '../../reducers/notificationReducer';
 const Drivers = () => {
 
     const dispatch = useDispatch()
@@ -34,11 +35,45 @@ const Drivers = () => {
     }
 
     const createDriver = () => {
-        const newDriver = {
-            name,
-            phoneNumber
+
+        try{
+
+            const newDriver = {
+                name,
+                phoneNumber
+            }
+            dispatch(addDriver(newDriver))
+            setName('')
+            setPhoneNumber('')
+    
+            dispatch(setNotification({
+                title: 'success',
+                message: 'Success'
+                
+            }))
+    
+            setTimeout(() =>  {
+              dispatch(setNotification({
+                title: '',
+                message: ''
+              }))
+            }, 5000)
+
+
+
+        }catch(exception){
+            const notification = {
+              title:'error',
+              message: 'Phone Number Already Exists'
+            }
+            dispatch(setNotification(notification))
+            setTimeout(() =>  {
+              dispatch(setNotification(''))
+            }, 5000)
+
         }
-        dispatch(addDriver(newDriver))
+
+        
     }
     return (
         <>

@@ -15,6 +15,7 @@ import Passengers from './Pages/Passengers/Passengers';
 import Home from './Pages/Home/Home';
 import Rides from './Pages/Rides/Rides';
 import { initializeRides } from './reducers/rideReducer';
+import Notification from './Components/Notification/Notification';
 
 function App() { 
   const[isLoggedIn, setLoggedIn] = useState(false)
@@ -39,6 +40,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Notification/>
         <Switch>
           <Route exact path="/auth/login">
             {isLoggedIn ? <Redirect to="/" /> : <Login/>}

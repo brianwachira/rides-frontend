@@ -1,5 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { getFreeDrivers } from '../../reducers/driverReducer'
+import { setNotification } from '../../reducers/notificationReducer'
+import { getFreePassengers } from '../../reducers/passengerReducer'
 import { startRide } from '../../reducers/rideReducer'
 import './Simulation.scss'
 
@@ -8,24 +11,11 @@ const Simulation = () => {
   
   const dispatch = useDispatch()
   
-  const passengersFree = useSelector(({passengers}) => {
-    // eslint-disable-next-line array-callback-return
-    return passengers.filter(passenger => {
-      if((passenger['rides'].some(ride => ride['status'] === "ongoing")) === false){
-          return passenger
-      }
-    })
-  })
+  const passengersFree = useSelector(state => state.passengers) 
 
 
-  const driversFree = useSelector(({drivers}) => {
-    // eslint-disable-next-line array-callback-return
-    return drivers.filter(driver => {
-      if((driver['rides'].some(ride => ride['status'] === "ongoing")) === false){
-          return driver
-      }
-    })
-  })
+  const driversFree = useSelector(state => state.drivers) 
+
   const randomPassenger = passengersFree[Math.floor(Math.random() * passengersFree.length)];
   const randomDriver = driversFree[Math.floor(Math.random() * driversFree.length)];
 
@@ -46,17 +36,54 @@ const Simulation = () => {
 
   const handleRides = (event) => {
     event.preventDefault()
-    if(randomPassenger && randomDriver) {
-      dispatch(startRide(newRide, randomPassenger.id, randomDriver.id))
+    
+    try{
+      if(randomPassenger && randomDriver) {
+        dispatch(startRide(newRide, randomPassenger.id, randomDriver.id))
+
+        dispatch(getFreePassengers())
+        dispatch(getFreeDrivers())
+      }
+      dispatch(setNotification({
+        title: 'Start Ride Success',
+        message: 'Start Ride Succesfull'
+      }))
+      setTimeout(()=> {
+        dispatch(setNotification(''))
+  
+      },5000)
+    }catch(exception){
+      const notification = {
+        status:'error',
+        message: 'Either Driver Or Passenger Is On Ride'
+      }
+      dispatch(setNotification(notification))
+      setTimeout(() =>  {
+        dispatch(setNotification({
+          status: '',
+          message: ''
+        }))
+      }, 5000)
+
     }
+
+  }
+
+  if(!randomDriver) {
+    return <p className="text-center px-5 py-5">All Drivers Are ON The Road Or Suspended</p>
+  }
+  if(!randomPassenger) {
+    return <p className="text-center px-5 py-5">All Passengers Are ON The Road</p>
   }
   return (
       <>
-      <p>Passenger Name : {randomPassenger.name}</p>
-      <p>Driver Name : {randomDriver.name}</p>
-      <p>Pick Up Point : [{pickupPointLat}, {pickupPointLong}]</p>
-      <p>Destination Point : [{destinationPointLat}:{destinationPointLong}]</p>
-      <button onClick={(event) => handleRides(event)} className="btn btn-primary">Run Simulation</button>
+      <div className="px-4 py-4">
+        <p>Passenger Name : {randomPassenger.name}</p>
+        <p>Driver Name : {randomDriver.name}</p>
+        <p>Pick Up Point : [{pickupPointLat}, {pickupPointLong}]</p>
+        <p>Destination Point : [{destinationPointLat}:{destinationPointLong}]</p>
+        <button onClick={(event) => handleRides(event)} className="btn btn-primary">Run Simulation</button>
+      </div>
       </>
   )
 

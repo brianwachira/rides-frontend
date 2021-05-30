@@ -6,6 +6,7 @@ import { addPassenger } from '../../reducers/passengerReducer';
 import RegisterModal from '../../Components/Modal/RegisterModal';
 import { useState } from 'react';
 import SideBar from '../../Components/SideBar/SideBar';
+import { setNotification } from '../../reducers/notificationReducer';
 const Passengers = () => {
 
     const dispatch = useDispatch()
@@ -32,11 +33,40 @@ const Passengers = () => {
         )
     }
     const createPassenger = () => {
-        const newPassenger = {
-            name,
-            phoneNumber
+
+        try{
+            const newPassenger = {
+                name,
+                phoneNumber
+            }
+            dispatch(addPassenger(newPassenger))
+            setName('')
+            setPhoneNumber('')
+    
+            dispatch(setNotification({
+                title: 'success',
+                message: 'Success'
+                
+            }))
+    
+            setTimeout(() =>  {
+              dispatch(setNotification({
+                title: '',
+                message: ''
+              }))
+            }, 5000)
+
+        }catch(exception){
+            const notification = {
+              title:'error',
+              message: 'Phone Number Already Exists'
+            }
+            dispatch(setNotification(notification))
+            setTimeout(() =>  {
+              dispatch(setNotification(''))
+            }, 5000)
+
         }
-        dispatch(addPassenger(newPassenger))
     }
     return (
         <>
