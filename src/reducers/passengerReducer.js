@@ -7,6 +7,7 @@ const passengerReducer = (state = [], action) => {
         case 'NEW_PASSENGER':
             return [...state, action.data]
         case 'GET_FREE_PASSENGERS':
+            // eslint-disable-next-line array-callback-return
             return state.filter(passenger => {
                 if((passenger['rides'].some(ride => ride['status'] === "ongoing")) === false){
                     return passenger
