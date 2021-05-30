@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import './App.css';
 import React from "react"
-import { BrowserRouter, Switch, Route, Redirect} from "react-router-dom"
+import { BrowserRouter, Switch, Route, Redirect, useRouteMatch} from "react-router-dom"
 
 import { useDispatch } from 'react-redux'
 // pages
@@ -16,6 +16,9 @@ import Home from './Pages/Home/Home';
 import Rides from './Pages/Rides/Rides';
 import { initializeRides } from './reducers/rideReducer';
 import Notification from './Components/Notification/Notification';
+import Driver from './Components/Driver/Driver';
+import Passenger from './Components/Passenger/Passenger';
+import Ride from './Components/Ride/Ride';
 
 function App() { 
   const[isLoggedIn, setLoggedIn] = useState(false)
@@ -37,16 +40,32 @@ function App() {
       dispatch(initializeRides())
     }
   },[dispatch])
+
+  const driverMatch = useRouteMatch('/drivers/:id')
+  const driverId = driverMatch ? driverMatch.params.id : null
+
+  const passengerMatch = useRouteMatch('/passengers/:id')
+  const passengerId = passengerMatch ? passengerMatch.params.id : null
+
+  const rideMatch = useRouteMatch('/rides/:id')
+  const rideId = rideMatch ? rideMatch.params.id : null
+
   return (
     <>
       <BrowserRouter>
         <Notification/>
         <Switch>
+          <Route path="/drivers/:id">
+            <Driver id={driverId}/>
+          </Route>
+          <Route path="/passengers/:id">
+            {!isLoggedIn ?  <Redirect to="/auth/login" /> : <Passenger id={passengerId}/>}
+          </Route>
+          <Route path="/rides/:id">
+            {!isLoggedIn ?  <Redirect to="/auth/login" /> : <Ride id={rideId}/>}
+          </Route>
           <Route exact path="/auth/login">
             {isLoggedIn ? <Redirect to="/" /> : <Login/>}
-          </Route>
-          <Route exact path="/">
-            {!isLoggedIn ? <Redirect to="/auth/login" /> : <Home/>}
           </Route>
           <Route exact path="/drivers">
             {!isLoggedIn ? <Redirect to="/auth/login" /> : <Drivers/>}
@@ -56,6 +75,9 @@ function App() {
           </Route>
           <Route exact path="/rides">
             {!isLoggedIn ? <Redirect to="/auth/login" /> : <Rides/>}
+          </Route>
+          <Route exact path="/">
+            {!isLoggedIn ? <Redirect to="/auth/login" /> : <Home/>}
           </Route>
           <Route component={PageNotFound}/>
         </Switch>

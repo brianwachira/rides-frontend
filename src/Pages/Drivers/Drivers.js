@@ -7,6 +7,7 @@ import RegisterModal from '../../Components/Modal/RegisterModal';
 import { useState } from 'react';
 import SideBar from '../../Components/SideBar/SideBar';
 import { setNotification } from '../../reducers/notificationReducer';
+import { Link } from 'react-router-dom';
 const Drivers = () => {
 
     const dispatch = useDispatch()
@@ -105,30 +106,32 @@ const Drivers = () => {
                             </thead>
                             <tbody>
                                 {drivers.map((driver, index) =>
-                                    <tr
-                                        key={driver.id}>
-                                        <td>{index+1}</td>
-                                        <td>{driver.name}</td>
-                                        <td>{driver.phoneNumber}</td>
-                                        <td>{driver.suspended === true ? <span className="badge bg-danger fs-6">true</span> : <span className="badge bg-success fs-6">false</span> }</td>
-                                        <td>
-                                            <div className="btn-group">
-                                                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  data-bs-target="#dropdownMenuButton" aria-expanded="false">
-                                                    
-                                                </button>
-                                                <ul className="dropdown-menu" id="dropdownMenuButton" aria-labelledby="dropdownMenuButton">
-                                                    {
-                                                        driver.suspended?
-                                                        <li className="dropdown-item" onClick={() => dispatch(unsuspendDriver(driver.id))}>Unsuspend Driver</li>
-                                                        :
-                                                        <li className="dropdown-item" onClick={() => dispatch(suspendDriver(driver.id))}>Suspend Driver</li>
+                                        <tr
+                                            key={driver.id}>
+                                            
+                                            <td><Link to={`drivers/${driver.id}`}>{index+1}</Link></td>
+                                            <td><Link to={`drivers/${driver.id}`}>{driver.name}</Link></td>
+                                            <td><Link to={`drivers/${driver.id}`}>{driver.phoneNumber}</Link></td>
+                                            <td><Link to={`drivers/${driver.id}`}>{driver.suspended === true ? <span className="badge bg-danger fs-6">true</span> : <span className="badge bg-success fs-6">false</span> }</Link></td>
+                                            <td>
+                                                <div className="btn-group">
+                                                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  data-bs-target="#dropdownMenuButton" aria-expanded="false">
                                                         
-                                                        }
-                                                        <li className="dropdown-item" >Delete Driver Account</li>
-                                                </ul>
-                                            </div> 
-                                        </td>
-                                    </tr>
+                                                    </button>
+                                                    <ul className="dropdown-menu" id="dropdownMenuButton" aria-labelledby="dropdownMenuButton">
+                                                        {
+                                                            driver.suspended?
+                                                            <li className="dropdown-item" onClick={() => dispatch(unsuspendDriver(driver.id))}>Unsuspend Driver</li>
+                                                            :
+                                                            <li className="dropdown-item" onClick={() => dispatch(suspendDriver(driver.id))}>Suspend Driver</li>
+                                                            
+                                                            }
+                                                            <li className="dropdown-item" >Delete Driver Account</li>
+                                                    </ul>
+                                                </div> 
+                                            </td>
+                                    
+                                        </tr>
                                     )}
                             </tbody>
                         </table>

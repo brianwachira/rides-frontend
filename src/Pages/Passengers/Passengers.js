@@ -7,6 +7,7 @@ import RegisterModal from '../../Components/Modal/RegisterModal';
 import { useState } from 'react';
 import SideBar from '../../Components/SideBar/SideBar';
 import { setNotification } from '../../reducers/notificationReducer';
+import { Link } from 'react-router-dom';
 const Passengers = () => {
 
     const dispatch = useDispatch()
@@ -100,9 +101,9 @@ const Passengers = () => {
                                 {passengers.map((passenger,index )=>
                                     <tr
                                         key={passenger.id}>
-                                        <td>{index+1}</td>
-                                        <td>{passenger.name}</td>
-                                        <td>{passenger.phoneNumber}</td>
+                                        <td><Link to={`passengers/${passenger.id}`}>{index+1}</Link></td>
+                                        <td><Link to={`passengers/${passenger.id}`}>{passenger.name}</Link></td>
+                                        <td><Link to={`passengers/${passenger.id}`}>{passenger.phoneNumber}</Link></td>
                                         <td>
                                             <div className="btn-group">
                                                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  data-bs-target="#dropdownMenuButton" aria-expanded="false">
