@@ -10,12 +10,12 @@ const setToken = newToken => {
 }
 
 
-const start = async (passengerId,driverId) => {
+const start = async (ride,passengerId,driverId) => {
   const config = {
     headers: { Authorization: token },
   }
   const newUrl = `${baseUrl}/${passengerId}/${driverId}`
-  const response = await axios.post(newUrl,config)
+  const response = await axios.post(newUrl,ride,config)
 
   return response.data
 
@@ -31,4 +31,5 @@ const stop = async rideId => {
   
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { setToken, start, stop}
