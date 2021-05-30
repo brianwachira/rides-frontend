@@ -9,16 +9,11 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { useState } from 'react'
 import SideBar from '../../Components/SideBar/SideBar'
+import Simulation from '../../Components/Simulation/Simulation'
 
 const Rides = () => {
-    let DefaultIcon = L.icon({
-        iconUrl: icon,
-        shadowUrl: iconShadow
-    });
-    
-    L.Marker.prototype.options.icon = DefaultIcon;
-    const dispatch = useDispatch()
 
+    const dispatch = useDispatch()
     const allRides = useSelector(state => state.rides)
 
     const ongoingRides = allRides.filter(ride => ride.status === 'ongoing')
@@ -41,21 +36,20 @@ const Rides = () => {
 
         dispatch(stopRide(id))
     }
+
+    let DefaultIcon = L.icon({
+        iconUrl: icon,
+        shadowUrl: iconShadow
+    });
+    
+    L.Marker.prototype.options.icon = DefaultIcon;
     const[polylines, setPolylines ]= useState([ [51.505, -0.09],[51.51, -0.1]])
-    const polyline = [
-        [51.505, -0.09],
-        [51.51, -0.1],
-      ]
       const limeOptions = { color: 'blue' }
 
 
       const showCoordinates = (pickupPoint,destinationPoint) => {
-
-            //console.log(pickupPoint)
-            //console.log(destinationPoint)
+          
             setPolylines([pickupPoint,destinationPoint])
-
-            console.log(polylines)
       }
 
       const ChangeView = ({center}) =>{
@@ -85,6 +79,9 @@ const Rides = () => {
                                 </li>
                                 <li className="nav-item" role="presentation">
                                     <button className="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="false" onClick={()=> dispatch(initializeRides())}>All Rides</button>
+                                </li>
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link" id="simulation-tab" data-bs-toggle="tab" data-bs-target="#simulation" type="button" role="tab" aria-controls="simulation" aria-selected="false" onClick={(event)=> event.preventDefault()}>Simulation</button>
                                 </li>
                             </ul>
                         </div>
@@ -133,6 +130,9 @@ const Rides = () => {
                             <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
                                 <Table
                                 rides={allRides}/> 
+                            </div>
+                            <div className="tab-pane fade" id="simulation" role="tabpanel" aria-labelledby="simulation-tab">
+                                <Simulation/>
                             </div>
                         </div>
                     </div>
