@@ -7,8 +7,9 @@ const passengerReducer = (state = [], action) => {
         case 'NEW_PASSENGER':
             return [...state, action.data]
         case 'GET_FREE_PASSENGERS':
+            const data = action.data
             // eslint-disable-next-line array-callback-return
-            return state.filter(passenger => {
+            return data.filter(passenger => {
                 if((passenger['rides'].some(ride => ride['status'] === "ongoing")) === false){
                     return passenger
                 }
@@ -41,9 +42,11 @@ export const addPassenger = passenger => {
     }
 }
 export const getFreePassengers = () => {
-    return dispatch => {
+    return async  dispatch => {
+        const passengers = await passengerService.getAll()
         dispatch({
-            type: 'GET_FREE_PASSENGERS'
+            type: 'GET_FREE_PASSENGERS',
+            data: passengers
         })
     }
 }
