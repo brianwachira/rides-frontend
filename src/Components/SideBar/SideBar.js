@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import './SideBar.scss'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const SideBar = () => {
 
     const [collapsed, setCollapsed] = useState(false)
+
+    const logout = () => {
+        window.localStorage.removeItem('admin')
+        window.location.reload()
+
+
+    }
     return (
         <>
             <nav className="navbar navbar-dark bg-blue d-flex d-md-none ">
@@ -20,7 +27,7 @@ const SideBar = () => {
             <nav className={collapsed === true ? 'main-nav collapse show' : 'main-nav collapse d-md-flex'} >
                 <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-sidebar" style={{ width: '280px' }}>
                     <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <i class="fa fa-superpowers me-2" aria-hidden="true"></i>
+                        <i className="fa fa-superpowers me-2" aria-hidden="true"></i>
                         <span className="fs-4">Rides Dashboard</span>
                     </a>
                     <hr/>
@@ -54,16 +61,12 @@ const SideBar = () => {
                     </ul>
                     <hr/>
                     <div className="dropdown">
-                    <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <Link to="/" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2"/>
-                        <strong>mdo</strong>
-                    </a>
+                        <strong>Admin</strong>
+                    </Link>
                     <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a className="dropdown-item" href="#">New project...</a></li>
-                        <li><a className="dropdown-item" href="#">Settings</a></li>
-                        <li><a className="dropdown-item" href="#">Profile</a></li>
-                        <li><hr className="dropdown-divider"/></li>
-                        <li><a className="dropdown-item" href="#">Sign out</a></li>
+                        <li><Link className="dropdown-item"  onClick={() => logout()}>Sign out</Link></li>
                     </ul>
                     </div>
                 </div>
