@@ -15,6 +15,7 @@ import Passengers from './Pages/Passengers/Passengers';
 import Home from './Pages/Home/Home';
 import Rides from './Pages/Rides/Rides';
 import { initializeRides } from './reducers/rideReducer';
+
 function App() { 
   const[isLoggedIn, setLoggedIn] = useState(false)
 
@@ -36,26 +37,28 @@ function App() {
     }
   },[dispatch])
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/auth/login" component={Login}>
-          {isLoggedIn ? <Redirect to="/" /> : <Login/>}
-        </Route>
-        <Route exact path="/" component={Home}>
-          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Home/>}
-        </Route>
-        <Route exact path="/drivers" component={Drivers}>
-          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Drivers/>}
-        </Route>
-        <Route exact path="/passengers" component={Passengers}>
-          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Passengers/>}
-        </Route>
-        <Route exact path="/rides" component={Rides}>
-          {!isLoggedIn ? <Redirect to="/auth/login" /> : <Rides/>}
-        </Route>
-        <Route component={PageNotFound}/>
-      </Switch>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/auth/login" component={Login}>
+            {isLoggedIn ? <Redirect to="/" /> : <Login/>}
+          </Route>
+          <Route exact path="/" component={Home}>
+            {!isLoggedIn ? <Redirect to="/auth/login" /> : <Home/>}
+          </Route>
+          <Route exact path="/drivers" component={Drivers}>
+            {!isLoggedIn ? <Redirect to="/auth/login" /> : <Drivers/>}
+          </Route>
+          <Route exact path="/passengers" component={Passengers}>
+            {!isLoggedIn ? <Redirect to="/auth/login" /> : <Passengers/>}
+          </Route>
+          <Route exact path="/rides" component={Rides}>
+            {!isLoggedIn ? <Redirect to="/auth/login" /> : <Rides/>}
+          </Route>
+          <Route component={PageNotFound}/>
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 }
 
