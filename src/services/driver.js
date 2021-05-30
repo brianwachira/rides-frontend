@@ -54,4 +54,5 @@ const suspend = async driverId => {
 }
 
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { getAll, create, setToken, suspend, unsuspend}
