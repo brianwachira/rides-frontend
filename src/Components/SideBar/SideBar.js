@@ -66,7 +66,7 @@ const SideBar = () => {
                         <strong>Admin</strong>
                     </Link>
                     <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><Link className="dropdown-item"  onClick={() => logout()}>Sign out</Link></li>
+                        <li><Link className="dropdown-item" to='#' onClick={() => logout()}>Sign out</Link></li>
                     </ul>
                     </div>
                 </div>
