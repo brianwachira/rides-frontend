@@ -32,10 +32,10 @@ export const initializeRides = () => {
     }
 }
 
-export const startRide = (passengerId,driverId) => {
+export const startRide = (ride,passengerId,driverId) => {
 
     return async dispatch => {
-        const newRide = await rideService.start(passengerId,driverId)
+        const newRide = await rideService.start(ride,passengerId,driverId)
 
         dispatch({
             type: 'START_RIDE',
