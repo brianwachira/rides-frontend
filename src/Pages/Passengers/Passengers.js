@@ -70,7 +70,7 @@ const Passengers = () => {
                                 {passengers.map((passenger,index )=>
                                     <tr
                                         key={passenger.id}>
-                                        <td>{index}</td>
+                                        <td>{index+1}</td>
                                         <td>{passenger.name}</td>
                                         <td>{passenger.phoneNumber}</td>
                                         <td>

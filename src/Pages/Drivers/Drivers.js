@@ -72,7 +72,7 @@ const Drivers = () => {
                                 {drivers.map((driver, index) =>
                                     <tr
                                         key={driver.id}>
-                                        <td>{index}</td>
+                                        <td>{index+1}</td>
                                         <td>{driver.name}</td>
                                         <td>{driver.phoneNumber}</td>
                                         <td>{driver.suspended === true ? <span className="badge bg-danger fs-6">true</span> : <span className="badge bg-success fs-6">false</span> }</td>
