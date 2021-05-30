@@ -40,19 +40,19 @@ function App() {
     <>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/auth/login" component={Login}>
+          <Route exact path="/auth/login">
             {isLoggedIn ? <Redirect to="/" /> : <Login/>}
           </Route>
-          <Route exact path="/" component={Home}>
+          <Route exact path="/">
             {!isLoggedIn ? <Redirect to="/auth/login" /> : <Home/>}
           </Route>
-          <Route exact path="/drivers" component={Drivers}>
+          <Route exact path="/drivers">
             {!isLoggedIn ? <Redirect to="/auth/login" /> : <Drivers/>}
           </Route>
-          <Route exact path="/passengers" component={Passengers}>
+          <Route exact path="/passengers">
             {!isLoggedIn ? <Redirect to="/auth/login" /> : <Passengers/>}
           </Route>
-          <Route exact path="/rides" component={Rides}>
+          <Route exact path="/rides">
             {!isLoggedIn ? <Redirect to="/auth/login" /> : <Rides/>}
           </Route>
           <Route component={PageNotFound}/>
