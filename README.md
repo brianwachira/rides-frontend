@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# rides-backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### By [Brian Wachira](https://www.github.com/brianwachira)
 
-## Available Scripts
+## Description
+This is an excerise to build  a web frontend that consumes the API from https://github.com/brianwachira/rides-backend/ <br/>
+A user can create and suspend drivers, monitor ongoing rides and run ride simulations
 
-In the project directory, you can run:
+## Link to live site
+[Here you go ](https://mighty-hamlet-09070.herokuapp.com/)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequites
+    - NodeJS required
+    - NPM 
+    - ReactJS
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Set-up and Installation
+- Clone the Repository
+- Change directory to the root of the project
+- Run ``` npm install ```. This will install all the dependencies needed.
+- Go to https://github.com/brianwachira/rides-backend/, set it up and  ensure it is running
+- Create  new cluster
+- Run ``` npm run dev ```
 
-### `npm test`
+## Example Pages
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### login
+<br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend1.png" alt="cluster 1"></a>
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Dashboard
+<br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend2.png" alt="cluster 2"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Rides
+<br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend4.png" alt="cluster 2"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Simulation
+<br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend5.png" alt="cluster 2"></a>
 
-### `npm run eject`
+### Add Driver
+<br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend6.png" alt="cluster 2"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Known bugs
+ - The User Interface is not lively and presentable. I am planning to work on that.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies used
+ - <b>axios</b> : Promise based HTTP client for the browser and node.js [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
+ - <b>react-leaflet</b> : React components for Leaflet maps [https://react-leaflet.js.org// ](https://react-leaflet.js.org/)
+ - <b>react-redux</b> :  library for managing application state. [https://react-redux.js.org/](https://react-redux.js.org/)
+ - <b>redux-thunk</b> : Thunk middleware for Redux. [https://github.com/reduxjs/redux-thunk](https://github.com/reduxjs/redux-thunk)
+ - <b>react-router-dom : A routing library for reactjs [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)</b>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Support and contact details
+Contact me on brianwachira7@gmail.com for any comments, reviews or advice.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### License
 
-## Learn More
+This project is licensed under the terms of the **MIT** license.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+>You can check out the full license [here](https://github.com/brianwachira/rides-frontend/blob/master/LICENSE.md)  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Copyright (c) **Brian Wachira**
