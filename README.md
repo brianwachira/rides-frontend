@@ -33,6 +33,7 @@ A user can create and suspend drivers, monitor ongoing rides and run ride simula
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend2.png" alt="cluster 2"></a>
 
 ### Rides
+###NB : Kindly note that on the browser the sidebar spans full viewport height and not as presented below
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend4.png" alt="cluster 2"></a>
 
 ### Simulation
