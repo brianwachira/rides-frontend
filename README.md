@@ -52,7 +52,7 @@ A user can create and suspend drivers, create passengers, monitor ongoing rides 
  - <b>react-leaflet</b> : React components for Leaflet maps [https://react-leaflet.js.org// ](https://react-leaflet.js.org/)
  - <b>react-redux</b> :  library for managing application state. [https://react-redux.js.org/](https://react-redux.js.org/)
  - <b>redux-thunk</b> : Thunk middleware for Redux. [https://github.com/reduxjs/redux-thunk](https://github.com/reduxjs/redux-thunk)
- - <b>react-router-dom : A routing library for reactjs [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)</b>
+ - <b>react-router-dom</b> : A routing library for reactjs [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)
 
 ## Support and contact details
 Contact me on brianwachira7@gmail.com for any comments, reviews or advice.
