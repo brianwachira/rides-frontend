@@ -7,17 +7,18 @@ This is a technical assesment test to build  a web frontend that consumes the AP
 A user can create and suspend drivers, create passengers, monitor ongoing rides and run ride simulations
 
 ## Link to live site
-[Here you go ](https://mighty-hamlet-09070.herokuapp.com/)
+<!-- [Here you go ](https://mighty-hamlet-09070.herokuapp.com/) -->
+Kindly allow me to fix some bugs
 
 
 ## Prerequites
-    - NodeJS required
-    - NPM 
-    - ReactJS
+- NodeJS required
+- NPM 
+- ReactJS
 
 ## Set-up and Installation
 - Clone the Repository
-- Change directory to the root of the project
+- Open the project in your favorite text editor.
 - Run ``` npm install ```. This will install all the dependencies needed.
 - Go to https://github.com/brianwachira/rides-backend/, set it up and  ensure it is running
 - Run ``` npm start ```
@@ -41,12 +42,6 @@ A user can create and suspend drivers, create passengers, monitor ongoing rides 
 ### Add Driver
 <br/><a href="https://mighty-hamlet-09070.herokuapp.com/rides" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend6.png" alt="cluster 2"></a>
 
-## Known bugs
- - The User Interface is not lively and presentable.
-    - There should be uniformity in spacing
-    - Some Pages are responsiveness has not been handled well.
- - Error handling has not been done well
-
 ## Technologies used
  - <b>axios</b> : Promise based HTTP client for the browser and node.js [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
  - <b>react-leaflet</b> : React components for Leaflet maps [https://react-leaflet.js.org// ](https://react-leaflet.js.org/)
@@ -54,6 +49,13 @@ A user can create and suspend drivers, create passengers, monitor ongoing rides 
  - <b>redux-thunk</b> : Thunk middleware for Redux. [https://github.com/reduxjs/redux-thunk](https://github.com/reduxjs/redux-thunk)
  - <b>react-router-dom</b> : A routing library for reactjs [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)
 
+## Known bugs
+ - The User Interface is not lively and presentable.
+    - There should be uniformity in spacing
+    - Some Pages are responsiveness has not been handled well.
+ - Error handling has not been done well
+ 
+ 
 ## Support and contact details
 Contact me on brianwachira7@gmail.com for any comments, reviews or advice.
 
