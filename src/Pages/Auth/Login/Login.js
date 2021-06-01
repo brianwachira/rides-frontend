@@ -29,7 +29,8 @@ const Login = () => {
 
             setTimeout(()=> {
                 dispatch(setNotification(''))
-                window.location.reload()
+
+                window.location.href = `${window.location.protocol}//${window.location.host}`
         
             },2000)
         }catch (exception) {
