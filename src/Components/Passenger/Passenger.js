@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import { ReactComponent as NothingHereImage } from "../../Assets/Images/empty.svg"
-import Ride from "../Ride/Ride"
+//import Ride from "../Ride/Ride"
 import SideBar from "../SideBar/SideBar"
 import './Passenger.scss'
 const Passenger = (props) => {
