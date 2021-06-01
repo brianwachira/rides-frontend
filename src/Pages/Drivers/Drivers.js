@@ -54,10 +54,7 @@ const Drivers = () => {
             }))
     
             setTimeout(() =>  {
-              dispatch(setNotification({
-                title: '',
-                message: ''
-              }))
+              dispatch(setNotification(''))
             }, 5000)
 
 

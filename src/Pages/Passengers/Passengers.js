@@ -51,10 +51,7 @@ const Passengers = () => {
             }))
     
             setTimeout(() =>  {
-              dispatch(setNotification({
-                title: '',
-                message: ''
-              }))
+              dispatch(setNotification(''))
             }, 5000)
 
         }catch(exception){
