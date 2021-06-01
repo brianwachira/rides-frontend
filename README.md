@@ -73,9 +73,9 @@ src
  - <b>react-redux</b> :  library for managing application state. [https://react-redux.js.org/](https://react-redux.js.org/)
  - <b>redux-thunk</b> : Thunk middleware for Redux. Used for running redux asynchronously [https://github.com/reduxjs/redux-thunk](https://github.com/reduxjs/redux-thunk)
  - <b>react-router-dom</b> : A routing library for reactjs [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)
-- bootstrap
-- font awesome
- - Sass  | `.scss` files
+- <b>bootstrap</b> : A free and open-source CSS framework directed at responsive, mobile-first front-end web development [https://getbootstrap.com/](https://getbootstrap.com/)
+- <b>font awesome</b> : a font and icon toolkit based on CSS and Less [https://fontawesome.com/](https://fontawesome.com/)
+ - <b>Sass  | `.scss` files</b> : Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets [https://sass-lang.com/guide] (https://sass-lang.com/guide)
 
 ## Known bugs
  - The User Interface is not lively and presentable.
