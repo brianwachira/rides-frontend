@@ -9,6 +9,31 @@ A user can create and suspend drivers, create passengers, monitor ongoing rides 
 ## Link to live site
 [Here you go ](https://rides-dashboard.herokuapp.com/)
 
+#### Folder structure
+```
+src 
+└───Components
+│   └───Example
+│       │   Example.js
+│       │   Example.scss
+│   └───Example2
+│       │   Example2.js
+│       │   Example2.scss
+|
+|
+└───reducers
+|
+|
+└───services
+|
+|
+└───Pages
+│   └───Example
+│       │   Example.js
+│       │   Example.scss
+|
+```
+
 
 ## Prerequites
 - NodeJS required
@@ -48,6 +73,9 @@ A user can create and suspend drivers, create passengers, monitor ongoing rides 
  - <b>react-redux</b> :  library for managing application state. [https://react-redux.js.org/](https://react-redux.js.org/)
  - <b>redux-thunk</b> : Thunk middleware for Redux. Used for running redux asynchronously [https://github.com/reduxjs/redux-thunk](https://github.com/reduxjs/redux-thunk)
  - <b>react-router-dom</b> : A routing library for reactjs [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)
+- bootstrap
+- font awesome
+ - Sass  | `.scss` files
 
 ## Known bugs
  - The User Interface is not lively and presentable.
