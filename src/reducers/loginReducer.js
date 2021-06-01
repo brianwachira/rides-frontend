@@ -21,7 +21,6 @@ export const login = (data) => {
     return async dispatch => {
         const admin = await loginService.login(data)
 
-        console.log(admin.token)
         window.localStorage.setItem(
             'admin', JSON.stringify(admin)
         )
