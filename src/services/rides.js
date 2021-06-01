@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/rides'
+const baseUrl = 'api/rides'
 
 
 

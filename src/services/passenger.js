@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/passenger'
+const baseUrl = 'api/passenger'
 
 
 let token = null

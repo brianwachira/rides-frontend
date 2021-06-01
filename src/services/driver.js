@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/driver'
+const baseUrl = '/api/driver'
 
 let token = null
 
