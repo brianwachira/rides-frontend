@@ -7,8 +7,7 @@ This is a technical assesment test to build  a web frontend that consumes the AP
 A user can create and suspend drivers, create passengers, monitor ongoing rides and run ride simulations
 
 ## Link to live site
-<!-- [Here you go ](https://mighty-hamlet-09070.herokuapp.com/) -->
-Kindly allow me to fix some bugs
+[Here you go ](https://rides-dashboard.herokuapp.com/)
 
 
 ## Prerequites
@@ -43,10 +42,11 @@ Kindly allow me to fix some bugs
 <br/><a href="https://mighty-hamlet-09070.herokuapp.com/rides" target="_blank"><img src="https://github.com/brianwachira/rides-frontend/blob/main/assets/frontend6.png" alt="cluster 2"></a>
 
 ## Technologies used
+ - <b>ReactJS (Create React App) </b> : Allows one to Create React apps with no build configuration. [https://create-react-app.dev/](https://create-react-app.dev/)
  - <b>axios</b> : Promise based HTTP client for the browser and node.js [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
  - <b>react-leaflet</b> : React components for Leaflet maps [https://react-leaflet.js.org// ](https://react-leaflet.js.org/)
  - <b>react-redux</b> :  library for managing application state. [https://react-redux.js.org/](https://react-redux.js.org/)
- - <b>redux-thunk</b> : Thunk middleware for Redux. [https://github.com/reduxjs/redux-thunk](https://github.com/reduxjs/redux-thunk)
+ - <b>redux-thunk</b> : Thunk middleware for Redux. Used for running redux asynchronously [https://github.com/reduxjs/redux-thunk](https://github.com/reduxjs/redux-thunk)
  - <b>react-router-dom</b> : A routing library for reactjs [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)
 
 ## Known bugs
