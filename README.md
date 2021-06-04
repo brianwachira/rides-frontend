@@ -1,4 +1,4 @@
-# rides-backend
+# rides-frontend
 
 #### By [Brian Wachira](https://www.github.com/brianwachira)
 
